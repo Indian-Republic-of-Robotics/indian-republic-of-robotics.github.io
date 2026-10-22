@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GT9ZK8RCRD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GT9ZK8RCRD');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Indian Republic of Robotics | Robotics Community for Students, Researchers and Professionals</title>
+<link rel="icon" type="image/png" href="logo.png">
+<meta name="description" content="A people-powered community for students, researchers and working professionals across India to share robotics work, discuss everything in robotics, and find events and jobs.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    /* Brand colours taken from the logo: navy #0A1F4A, saffron #FD9A36, green #14870A */
+    --bg: #FFFFFF;
+    --ink: #0A1F4A;
+    --muted: #4A5778;
+    --steel: #1F3A78;
+    --orange: #FD9A36;
+    --green: #14870A;
+    --line: #E1E6F0;
+    --display: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+  a { color: var(--steel); }
+  a:focus-visible, .btn:focus-visible {
+    outline: 3px solid var(--orange);
+    outline-offset: 3px;
+  }
+  body::before { content: ""; display: block; height: 5px; background: linear-gradient(90deg, var(--orange) 50%, var(--green) 50%); }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* Header */
+  header { padding: 20px 0; border-bottom: 1px solid var(--line); }
+  header .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .brand { display: inline-flex; align-items: center; gap: 12px; font-family: var(--display); font-weight: 700; font-size: 1.35rem; color: var(--ink); text-decoration: none; }
+  .brand img { width: 44px; height: 44px; display: block; }
+  nav { display: flex; gap: 22px; flex-wrap: wrap; }
+  nav a { color: var(--ink); text-decoration: none; font-weight: 500; }
+  nav a:hover { color: var(--steel); text-decoration: underline; text-underline-offset: 4px; }
+
+  /* Hero */
+  .hero { padding: 64px 0 72px; }
+  .hero .wrap { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; }
+  h1 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(2.3rem, 5vw, 3.6rem);
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    margin: 0 0 20px;
+  }
+  .lead { font-size: 1.2rem; color: var(--muted); max-width: 34em; margin: 0 0 32px; }
+  .actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    padding: 13px 22px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid var(--ink);
+  }
+  .btn-primary { background: var(--orange); color: var(--ink); border-color: var(--orange); }
+  .btn-primary:hover { background: #FFAE57; border-color: #FFAE57; }
+  .btn-secondary { background: transparent; color: var(--ink); }
+  .btn-secondary:hover { background: var(--ink); color: var(--bg); }
+
+  /* Robot arm */
+  .arm { width: 100%; height: auto; max-width: 460px; justify-self: center; }
+  .arm .ink { fill: var(--ink); }
+  .arm .steel { fill: var(--steel); }
+  .arm .gold { fill: var(--orange); }
+  .arm .floor { stroke: var(--line); stroke-width: 2; }
+  .shoulder, .elbow, .wrist { transform-box: view-box; }
+  .shoulder { transform-origin: 240px 300px; animation: shoulder 6s ease-in-out infinite alternate; }
+  .elbow { transform-origin: 240px 185px; animation: elbow 6s ease-in-out infinite alternate; }
+  .wrist { transform-origin: 240px 78px; animation: wrist 6s ease-in-out infinite alternate; }
+  @keyframes shoulder { from { transform: rotate(-22deg); } to { transform: rotate(18deg); } }
+  @keyframes elbow { from { transform: rotate(48deg); } to { transform: rotate(-34deg); } }
+  @keyframes wrist { from { transform: rotate(-18deg); } to { transform: rotate(14deg); } }
+  @media (prefers-reduced-motion: reduce) {
+    .shoulder, .elbow, .wrist { animation: none; }
+    .shoulder { transform: rotate(-4deg); }
+    .elbow { transform: rotate(20deg); }
+  }
+
+  /* Sections */
+  section { padding: 56px 0; border-top: 1px solid var(--line); }
+  h2 { font-family: var(--display); font-weight: 700; font-size: 1.9rem; letter-spacing: -0.01em; margin: 0 0 24px; }
+  .two-col { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 48px; }
+  .two-col h2 { margin: 0; }
+  .items { margin: 0; padding: 0; list-style: none; }
+  .items li { padding: 18px 0; border-bottom: 1px solid var(--line); }
+  .items li:first-child { padding-top: 0; }
+  .items li:last-child { border-bottom: none; padding-bottom: 0; }
+  .items h3 { font-family: var(--display); font-size: 1.2rem; margin: 0 0 4px; }
+  .items p { margin: 0; color: var(--muted); }
+  .items .roles { margin: 12px 0; padding-left: 20px; color: var(--ink); }
+  .items .roles li { padding: 2px 0; border: none; }
+  .join-box { background: var(--ink); color: var(--bg); border-radius: 14px; padding: 40px; }
+  .join-box h2 { color: var(--bg); margin-bottom: 12px; }
+  .join-box p { color: #C7D0E4; max-width: 36em; margin: 0 0 24px; }
+  .join-box .btn-secondary { color: var(--bg); border-color: var(--bg); }
+  .join-box .btn-secondary:hover { background: var(--bg); color: var(--ink); }
+
+  footer { padding: 36px 0 48px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.95rem; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  footer a { margin-right: 18px; }
+
+  @media (max-width: 800px) {
+    .hero .wrap, .two-col { grid-template-columns: 1fr; gap: 28px; }
+    .hero { padding: 40px 0 48px; }
+    .arm { max-width: 320px; }
+    .join-box { padding: 28px; }
+    .brand { font-size: 1.1rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <!-- EDIT: change the name here if you rename the community again -->
+    <a class="brand" href="#top"><img src="logo.png" alt="" width="44" height="44">Indian Republic of Robotics</a>
+    <nav aria-label="Main">
+      <a href="#about">What you can do</a>
+      <a href="#who">Who it's for</a>
+      <a href="#get-involved">Get involved</a>
+      <a href="#join">Join</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Share what you build. Discuss robotics. Find events and jobs across India.</h1>
+        <p class="lead">
+          <!-- EDIT: adjust this intro in your own words -->
+          Indian Republic of Robotics is a people-powered community for students, researchers and working professionals across India who work in robotics (and industrial automation).
+        </p>
+        <div class="actions">
+          <!-- EDIT: Discord invite link and Reddit community link are set in the buttons below -->
+          <a class="btn btn-primary" href="https://discord.gg/nBFWkRERk">Join on Discord</a>
+          <a class="btn btn-secondary" href="https://www.reddit.com/r/IN_Republic_Robotics/">Join on Reddit</a>
+        </div>
+      </div>
+
+      <svg class="arm" viewBox="0 0 480 400" role="img" aria-label="Illustration of a friendly robotic arm moving back and forth">
+        <line class="floor" x1="40" y1="364" x2="440" y2="364"/>
+        <rect class="ink" x="150" y="340" width="180" height="24" rx="6"/>
+        <rect class="steel" x="214" y="296" width="52" height="46" rx="6"/>
+        <g class="shoulder">
+          <rect class="ink" x="227" y="180" width="26" height="130" rx="13"/>
+          <g class="elbow">
+            <rect class="steel" x="229" y="76" width="22" height="120" rx="11"/>
+            <circle class="gold" cx="240" cy="185" r="16"/>
+            <circle class="ink" cx="240" cy="185" r="6"/>
+            <g class="wrist">
+              <circle class="gold" cx="240" cy="78" r="12"/>
+              <rect class="ink" x="222" y="42" width="8" height="38" rx="4"/>
+              <rect class="ink" x="250" y="42" width="8" height="38" rx="4"/>
+            </g>
+          </g>
+        </g>
+        <circle class="gold" cx="240" cy="300" r="20"/>
+        <circle class="ink" cx="240" cy="300" r="7"/>
+      </svg>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap two-col">
+      <h2>What you can do here</h2>
+      <ul class="items">
+        <li>
+          <h3>Share your work</h3>
+          <p>Students building robots can show their projects and get feedback. Researchers and working professionals can share what they are working on too.</p>
+        </li>
+        <li>
+          <h3>Discuss everything robotics</h3>
+          <p>Ask questions, trade ideas and learn from people across hardware, software, controls, firmware and automation.</p>
+        </li>
+        <li>
+          <h3>Find events and jobs</h3>
+          <p>Meetups, workshops, hackathons, competitions and job openings related to robotics are shared in the community, in Bangalore and across India.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="who">
+    <div class="wrap two-col">
+      <h2>Who it's for</h2>
+      <ul class="items">
+        <li>
+          <h3>Students</h3>
+          <p>Anyone who wants to learn robotics or is passionate about it. Share what you are building and learn from people who have built similar things.</p>
+        </li>
+        <li>
+          <h3>Researchers</h3>
+          <p>Academics and research scholars working on robotics, automation and related fields. Share your findings and connect with people who can put them to use.</p>
+        </li>
+        <li>
+          <h3>Working professionals</h3>
+          <p>Any engineer working in a robotics company. Robotics is a multidisciplinary field, so you might be any of these:</p>
+          <ul class="roles">
+            <li>Controls and instrumentation engineer</li>
+            <li>Firmware engineer</li>
+            <li>Software engineer</li>
+            <li>Mechanical engineer</li>
+            <li>Electronics engineer</li>
+          </ul>
+          <p>Whatever your background, if you work on robots, you are a robotics engineer, and you belong here.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="get-involved">
+    <div class="wrap two-col">
+      <h2>Powered by people like you</h2>
+      <div>
+        <p style="margin-top:0">Everything here is run by community members who give their time because they love robotics. If you would like to help with any of these, we would love to hear from you:</p>
+        <ul>
+          <li>Organizing or hosting a meetup in your city</li>
+          <li>Sharing robotics events happening near you</li>
+          <li>Moderating the Discord and Reddit communities</li>
+          <li>Design, social media and outreach</li>
+        </ul>
+        <!-- EDIT: replace with your community email -->
+        <p><a href="mailto:indian.republic.robotics@gmail.com">indian.republic.robotics@gmail.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="join">
+    <div class="wrap">
+      <div class="join-box">
+        <h2>Come say hello</h2>
+        <p>Introduce yourself, share what you are building or working on, and tell us which city you are in so you hear about events near you.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://discord.gg/nBFWkRERk">Join on Discord</a>
+          <a class="btn btn-secondary" href="https://www.reddit.com/r/IN_Republic_Robotics/">Join on Reddit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="conduct">
+    <div class="wrap two-col">
+      <h2>Ground rules</h2>
+      <ul>
+        <li>Be kind and patient. Everyone here started as a beginner.</li>
+        <li>Share your work and give credit to others.</li>
+        <li>No spam or unsolicited promotion.</li>
+        <li>Safety first: when discussing hardware, mains power or industrial equipment, always mention the risks.</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <!-- EDIT: replace the placeholder links with your real pages -->
+      <!-- LinkedIn: remove the comment markers and paste your real Page address when it is ready
+      <a href="https://www.linkedin.com/company/your-page">LinkedIn</a>
+      -->
+      <a href="https://www.reddit.com/r/IN_Republic_Robotics/">Reddit</a>
+      <a href="mailto:indian.republic.robotics@gmail.com">Email</a>
+    </div>
+    <div>A people-powered community initiative in India.</div>
+  </div>
+</footer>
+
+</body>
+</html>
