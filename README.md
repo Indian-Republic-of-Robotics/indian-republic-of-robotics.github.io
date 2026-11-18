@@ -10,13 +10,18 @@ A people-powered community for students, researchers and working professionals a
 
 ## Join us
 
-- Discord: https://discord.gg/nBFWkRERk
+- Discord: https://discord.gg/hgeKZS4fe
 - Reddit: https://www.reddit.com/r/IN_Republic_Robotics/
+- X: https://x.com/IndRepRobotics
 - Email: indian.republic.robotics@gmail.com
 
 ## About this repository
 
 This repository holds the community website. The page is `index.html`, the logo is `logo.png`, and the site is published with GitHub Pages.
+
+## Gallery
+
+Photos in the `gallery` folder appear on the website automatically. Name files like `2026-12-12-first-meetup-group-photo.jpg`, and the website turns the name into a caption.
 
 ## Get involved
 
