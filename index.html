@@ -10,10 +10,11 @@
 
   gtag('config', 'G-GT9ZK8RCRD');
 </script>
+<script>document.documentElement.className += " js";</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Indian Republic of Robotics | Robotics Community for Students, Researchers and Professionals</title>
-<link rel="icon" type="image/png" href="logo.png">
+<link rel="icon" type="image/png" href="logo.png?v=2">
 <meta name="description" content="A people-powered community for students, researchers and working professionals across India to share robotics work, discuss everything in robotics, and find events and jobs.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -118,6 +119,7 @@
   .items p { margin: 0; color: var(--muted); }
   .items .roles { margin: 12px 0; padding-left: 20px; color: var(--ink); }
   .items .roles li { padding: 2px 0; border: none; }
+  .items .role { margin: 0 0 4px; color: var(--steel); font-weight: 600; }
   .join-box { background: var(--ink); color: var(--bg); border-radius: 14px; padding: 40px; }
   .join-box h2 { color: var(--bg); margin-bottom: 12px; }
   .join-box p { color: #C7D0E4; max-width: 36em; margin: 0 0 24px; }
@@ -127,6 +129,31 @@
   footer { padding: 36px 0 48px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.95rem; }
   footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
   footer a { margin-right: 18px; }
+
+  /* Tabs */
+  .tablist { display: none; }
+  .js .tablist { display: flex; gap: 6px; overflow-x: auto; padding-top: 14px; border-bottom: 1px solid var(--line); }
+  .tab { appearance: none; background: none; border: 0; border-bottom: 3px solid transparent; margin-bottom: -1px; padding: 12px 16px; font: inherit; font-weight: 600; color: var(--muted); cursor: pointer; white-space: nowrap; }
+  .tab:hover { color: var(--ink); }
+  .tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--orange); }
+  .tab:focus-visible { outline: 3px solid var(--orange); outline-offset: -3px; border-radius: 6px; }
+  .js .panel:not(.active) { display: none; }
+  .panel:focus { outline: none; }
+  .panel > section:first-child { border-top: none; }
+  .tabs { border-top: none; }
+
+  /* Events and gallery */
+  .luma-embed { display: block; width: 100%; max-width: 600px; height: 450px; margin-top: 28px; border: 1px solid #bfcbda88; border-radius: 8px; background: #fff; }
+  .events-note { margin: 24px 0 0; color: var(--muted); }
+  .gallery-note { margin: 0; color: var(--muted); max-width: 36em; }
+  .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+  .gallery-grid:not(:empty) { margin-top: 8px; }
+  .gallery-grid figure { margin: 0; }
+  .gallery-grid a { display: block; border-radius: 10px; overflow: hidden; background: var(--line); }
+  .gallery-grid img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; transition: transform 0.25s ease; }
+  .gallery-grid a:hover img { transform: scale(1.03); }
+  .gallery-grid figcaption { margin-top: 8px; font-size: 0.9rem; color: var(--muted); }
+  @media (prefers-reduced-motion: reduce) { .gallery-grid img { transition: none; } .gallery-grid a:hover img { transform: none; } }
 
   @media (max-width: 800px) {
     .hero .wrap, .two-col { grid-template-columns: 1fr; gap: 28px; }
@@ -142,11 +169,10 @@
 <header>
   <div class="wrap">
     <!-- EDIT: change the name here if you rename the community again -->
-    <a class="brand" href="#top"><img src="logo.png" alt="" width="44" height="44">Indian Republic of Robotics</a>
+    <a class="brand" href="#top"><img src="logo.png?v=2" alt="" width="44" height="44">Indian Republic of Robotics</a>
     <nav aria-label="Main">
-      <a href="#about">What you can do</a>
-      <a href="#who">Who it's for</a>
-      <a href="#get-involved">Get involved</a>
+      <a href="#about">About</a>
+      <a href="#events">Events</a>
       <a href="#join">Join</a>
     </nav>
   </div>
@@ -191,6 +217,17 @@
     </div>
   </div>
 
+  <div class="tabs">
+    <div class="wrap">
+      <div class="tablist" role="tablist" aria-label="More about the community">
+        <button class="tab" role="tab" id="tab-about" data-tab="about" aria-controls="panel-about" aria-selected="true">About</button>
+        <button class="tab" role="tab" id="tab-events" data-tab="events" aria-controls="panel-events" aria-selected="false" tabindex="-1">Events</button>
+        <button class="tab" role="tab" id="tab-gallery" data-tab="gallery" aria-controls="panel-gallery" aria-selected="false" tabindex="-1">Gallery</button>
+        <button class="tab" role="tab" id="tab-team" data-tab="team" aria-controls="panel-team" aria-selected="false" tabindex="-1">Team</button>
+        <button class="tab" role="tab" id="tab-get-involved" data-tab="get-involved" aria-controls="panel-get-involved" aria-selected="false" tabindex="-1">Get involved</button>
+      </div>
+    </div>
+  <div class="panel active" id="panel-about" role="tabpanel" aria-labelledby="tab-about" tabindex="0">
   <section id="about">
     <div class="wrap two-col">
       <h2>What you can do here</h2>
@@ -238,7 +275,61 @@
       </ul>
     </div>
   </section>
-
+  </div>
+  <div class="panel" id="panel-events" role="tabpanel" aria-labelledby="tab-events" tabindex="0">
+  <section id="events">
+    <div class="wrap two-col">
+      <h2>Events</h2>
+      <div>
+        <ul class="items">
+          <li>
+            <h3>Our first event</h3>
+            <p>Registration is open. Register below to get updates as the details are confirmed.</p>
+          </li>
+          <li>
+            <h3>Offline meetups, next</h3>
+            <p>After that, we will start meeting in person. Watch this space.</p>
+          </li>
+        </ul>
+        <iframe class="luma-embed" src="https://luma.com/embed/event/evt-ofdFGdzNkZWZ1k8/simple" title="Register for our first event on Luma" loading="lazy" allow="fullscreen; payment" tabindex="0"></iframe>
+        <!-- LUMA CALENDAR: remove these comment markers and paste your Luma calendar address in the link
+        <p class="events-note"><a class="btn btn-primary" href="https://lu.ma/your-calendar">See our events on Luma</a></p>
+        -->
+      </div>
+    </div>
+  </section>
+  </div>
+  <div class="panel" id="panel-gallery" role="tabpanel" aria-labelledby="tab-gallery" tabindex="0">
+  <!-- GALLERY: you never need to edit this section. Just upload photos into the "gallery" folder of this repository and they appear here automatically. -->
+  <section id="gallery">
+    <div class="wrap">
+      <h2>Gallery</h2>
+      <p id="gallery-note" class="gallery-note">Something interesting is coming soon. Photos from our events and meetups will appear here.</p>
+      <div id="gallery-grid" class="gallery-grid"></div>
+    </div>
+  </section>
+  </div>
+  <div class="panel" id="panel-team" role="tabpanel" aria-labelledby="tab-team" tabindex="0">
+  <section id="team">
+    <div class="wrap two-col">
+      <h2>Team</h2>
+      <ul class="items">
+        <!-- EDIT: change the names, roles and descriptions here. Copy one list item to add a person. -->
+        <li>
+          <h3>Mitank Dasondhi</h3>
+          <p class="role">Founder</p>
+          <p>Started the community and looks after how it runs.</p>
+        </li>
+        <li>
+          <h3>Indivar Mishra</h3>
+          <p class="role">Advisor</p>
+          <p>Advises on community building, engagement and events, and gives feedback that shapes what we do.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+  </div>
+  <div class="panel" id="panel-get-involved" role="tabpanel" aria-labelledby="tab-get-involved" tabindex="0">
   <section id="get-involved">
     <div class="wrap two-col">
       <h2>Powered by people like you</h2>
@@ -256,6 +347,20 @@
     </div>
   </section>
 
+  <section id="conduct">
+    <div class="wrap two-col">
+      <h2>Ground rules</h2>
+      <ul>
+        <li>Be kind and patient. Everyone here started as a beginner.</li>
+        <li>Share your work and give credit to others.</li>
+        <li>No spam or unsolicited promotion.</li>
+        <li>Safety first: when discussing hardware, mains power or industrial equipment, always mention the risks.</li>
+      </ul>
+    </div>
+  </section>
+  </div>
+  </div>
+
   <section id="join">
     <div class="wrap">
       <div class="join-box">
@@ -268,23 +373,15 @@
       </div>
     </div>
   </section>
-
-  <section id="conduct">
-    <div class="wrap two-col">
-      <h2>Ground rules</h2>
-      <ul>
-        <li>Be kind and patient. Everyone here started as a beginner.</li>
-        <li>Share your work and give credit to others.</li>
-        <li>No spam or unsolicited promotion.</li>
-        <li>Safety first: when discussing hardware, mains power or industrial equipment, always mention the risks.</li>
-      </ul>
-    </div>
-  </section>
 </main>
 
 <footer>
   <div class="wrap">
     <div>
+      <a href="https://x.com/IndRepRobotics">X</a>
+      <!-- Luma calendar: remove the comment markers and paste your Luma calendar address when you have one
+      <a href="https://lu.ma/your-calendar">Luma</a>
+      -->
       <!-- EDIT: replace the placeholder links with your real pages -->
       <!-- LinkedIn: remove the comment markers and paste your real Page address when it is ready
       <a href="https://www.linkedin.com/company/your-page">LinkedIn</a>
@@ -296,5 +393,90 @@
   </div>
 </footer>
 
+<script>
+  // Tabs: switch between sections without scrolling. Links like #events also open the right tab.
+  (function () {
+    var tabs = [].slice.call(document.querySelectorAll(".tab"));
+    var panels = [].slice.call(document.querySelectorAll(".panel"));
+    if (!tabs.length) { return; }
+    var alias = { who: "about", conduct: "get-involved" };
+    function show(name, focus) {
+      tabs.forEach(function (t) {
+        var on = t.getAttribute("data-tab") === name;
+        t.setAttribute("aria-selected", on ? "true" : "false");
+        t.tabIndex = on ? 0 : -1;
+        if (on && focus) { t.focus(); }
+      });
+      panels.forEach(function (p) { p.classList.toggle("active", p.id === "panel-" + name); });
+    }
+    function fromHash() {
+      var id = location.hash.replace("#", "");
+      if (!id) { return; }
+      var name = alias[id] || id;
+      if (!document.getElementById("panel-" + name)) { return; }
+      show(name);
+      var el = document.getElementById(id);
+      if (el) { window.requestAnimationFrame(function () { el.scrollIntoView(); }); }
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener("click", function () {
+        var name = t.getAttribute("data-tab");
+        show(name);
+        if (history.replaceState) { history.replaceState(null, "", "#" + name); }
+      });
+      t.addEventListener("keydown", function (e) {
+        var next = null;
+        if (e.key === "ArrowRight") { next = tabs[(i + 1) % tabs.length]; }
+        else if (e.key === "ArrowLeft") { next = tabs[(i - 1 + tabs.length) % tabs.length]; }
+        else if (e.key === "Home") { next = tabs[0]; }
+        else if (e.key === "End") { next = tabs[tabs.length - 1]; }
+        if (next) { e.preventDefault(); show(next.getAttribute("data-tab"), true); }
+      });
+    });
+    window.addEventListener("hashchange", fromHash);
+    fromHash();
+  })();
+</script>
+<script>
+  // Gallery: lists the photos in the repository's "gallery" folder and shows them.
+  // To add or remove photos, just upload to or delete from that folder on GitHub.
+  (function () {
+    var grid = document.getElementById("gallery-grid");
+    var note = document.getElementById("gallery-note");
+    var host = location.hostname;
+    if (!grid || !/\.github\.io$/.test(host)) { return; }
+    var owner = host.split(".")[0];
+    var repo = host;
+    function caption(name) {
+      var t = name.replace(/\.[^.]+$/, "")
+                  .replace(/^\d{4}-\d{2}-\d{2}[-_ ]*/, "")
+                  .replace(/[-_]+/g, " ")
+                  .trim();
+      return t ? t.charAt(0).toUpperCase() + t.slice(1) : "";
+    }
+    fetch("https://api.github.com/repos/" + owner + "/" + repo + "/contents/gallery")
+      .then(function (r) { if (!r.ok) { throw new Error("no gallery"); } return r.json(); })
+      .then(function (items) {
+        var photos = items
+          .filter(function (f) { return f.type === "file" && /\.(jpe?g|png|webp|gif)$/i.test(f.name); })
+          .sort(function (a, b) { return b.name.localeCompare(a.name); });
+        if (!photos.length) { return; }
+        note.hidden = true;
+        photos.forEach(function (f) {
+          var text = caption(f.name);
+          var src = "gallery/" + encodeURIComponent(f.name);
+          var fig = document.createElement("figure");
+          var a = document.createElement("a");
+          a.href = src; a.target = "_blank"; a.rel = "noopener";
+          var img = document.createElement("img");
+          img.src = src; img.alt = text || "Event photo"; img.loading = "lazy";
+          a.appendChild(img); fig.appendChild(a);
+          if (text) { var cap = document.createElement("figcaption"); cap.textContent = text; fig.appendChild(cap); }
+          grid.appendChild(fig);
+        });
+      })
+      .catch(function () { /* keep the "coming soon" note */ });
+  })();
+</script>
 </body>
 </html>
